@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Testing Data parsing from csv file.</h1>
+        <script>
+            async function getData() {
+                const response = await fetch("test1.csv");
+                const tableData = await response.text();
+
+                const rows = tableData.split("\n");
+
+                rows.slice(1).forEach((eachRow) => {
+                    columns = eachRow.split(",");
+                    datetime = columns[0];
+                    address = columns[1];
+                    console.log(datetime + ", " + address);
+                });
+            }
+
+            getData();
+        </script>
+    </body>
+</html>
